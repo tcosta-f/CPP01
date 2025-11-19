@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsn <tsn@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tcosta-f <tcosta-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 23:40:00 by tsn               #+#    #+#             */
-/*   Updated: 2025/10/22 00:51:49 by tsn              ###   ########.fr       */
+/*   Updated: 2025/11/19 15:40:49 by tcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,16 @@
 #include <fstream>
 #include <string>
 
-// Função auxiliar que substitui todas as ocorrências de 's1' por 's2' dentro de uma string
 std::string replaceAll(std::string line, const std::string &s1, const std::string &s2)
 {
     size_t pos;
 
     pos = 0;
-    // Procura todas as posições onde s1 aparece
     while ((pos = line.find(s1, pos)) != std::string::npos)
     {
-        line.erase(pos, s1.length());   // Remove s1 da posição encontrada
-        line.insert(pos, s2);           // Insere s2 no mesmo local
-        pos += s2.length();             // Avança o cursor para depois da substituição
+        line.erase(pos, s1.length());
+        line.insert(pos, s2);
+        pos += s2.length();
     }
     return (line);
 }
@@ -43,20 +41,20 @@ int main(int argc, char **argv)
     if (s1.empty())
     {
         std::cerr << "Error: s1 cannot be empty." << std::endl;
-        return 1;
+        return (1);
     }
     std::ifstream infile(filename.c_str());
     if (!infile)
     {
         std::cerr << "Error: cannot open input file '" << filename << "'" << std::endl;
-        return 1;
+        return (1);
     }
     std::ofstream outfile((filename + ".replace").c_str());
     if (!outfile)
     {
         std::cerr << "Error: cannot create output file '" << filename << ".replace'" << std::endl;
         infile.close();
-        return 1;
+        return (1);
     }
     std::string line;
     while (std::getline(infile, line))

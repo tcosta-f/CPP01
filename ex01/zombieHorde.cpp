@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsn <tsn@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: tcosta-f <tcosta-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 18:42:18 by tsn               #+#    #+#             */
-/*   Updated: 2025/10/19 19:59:05 by tsn              ###   ########.fr       */
+/*   Updated: 2025/11/19 15:28:51 by tcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Zombie* zombieHorde(int N, std::string name)
     if (N <= 0)
         return (NULL);
 
-    Zombie* horde = new Zombie[N];
+    Zombie *horde = new Zombie[N];
 
     for (int i = 0; i < N; i++)
         horde[i].setName(name, i);

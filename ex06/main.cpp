@@ -5,19 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcosta-f <tcosta-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/17 17:36:57 by tsn               #+#    #+#             */
-/*   Updated: 2025/11/19 15:49:31 by tcosta-f         ###   ########.fr       */
+/*   Created: 2025/10/23 03:14:52 by tsn               #+#    #+#             */
+/*   Updated: 2025/11/18 17:51:36 by tcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Harl.hpp"
 
-int main(void)
+int main(int argc, char** argv)
 {
-    Zombie *horde = zombieHorde(5, "Walker");
-
-    for (int i = 0; i < 5; i++)
-        horde[i].announce();
-
-    delete[] horde;
+    std::string command;
+	Harl harl;
+	
+	if (argc != 2)
+	{
+		std::cout << "Usage: ./Harl ... <level>" << std::endl;
+		return (-1);		
+	}
+	command = argv[1];
+    harl.complain(command);
+    return (0);
 }

@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcosta-f <tcosta-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/17 17:36:57 by tsn               #+#    #+#             */
-/*   Updated: 2025/11/19 15:49:31 by tcosta-f         ###   ########.fr       */
+/*   Created: 2025/10/23 03:21:17 by tsn               #+#    #+#             */
+/*   Updated: 2025/11/18 17:44:11 by tcosta-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HARL_HPP
+#define HARL_HPP
 
-int main(void)
+#include <iostream>
+#include <string>
+
+class Harl
 {
-    Zombie *horde = zombieHorde(5, "Walker");
+    private:
+        void debug(void);
+        void info(void);
+        void warning(void);
+        void error(void);
+    public:
+        void complain(std::string level);
+};
 
-    for (int i = 0; i < 5; i++)
-        horde[i].announce();
-
-    delete[] horde;
-}
+#endif
